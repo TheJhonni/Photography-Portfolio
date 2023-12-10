@@ -5,14 +5,11 @@ import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
 import { CursorContext } from '../context/CursorContext';
 
-const Home = ({content}) => {
+const Home = () => {
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
-  const height800 = window.innerHeight <= 800;
-  const height600 = window.innerHeight <= 600;
-
-  useEffect(() => {
-    console.log(content)
-  })
+  // const height800 = window.innerHeight <= 800;
+  // const height600 = window.innerHeight <= 600;
+  const largeScreen = window.innerWidth >= 1024;
 
   return (
     <motion.section
@@ -34,13 +31,9 @@ const Home = ({content}) => {
             exit={{ opacity: 0, x: '-50%' }} transition={transition1}
             onMouseEnter={ mouseEnterHandler }
             onMouseLeave={ mouseLeaveHandler }
-            className={('w-full pt-12 pb-0 lg:pt-[650px] lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center text-orange')
-              +
-              (height600 ? ' pt-2 lg:pt-0 lg:pb-[70%]' : '')
-              +
-              (height800 ? ' pt-2 lg:pt-0 lg:pb-56' : '')
-            }>
-            <h1 className='h1 overflow-hidden'> Photographer <br /> & Film Maker</h1>
+            className='w-full pt-0 pb-0 lg:pt-40 lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center text-orange'>
+            <h1 className='text-[55px] lg:h1 overflow-hidden'> Photographer {largeScreen && <br />}
+            & Film Maker</h1>
             <p className='text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-6'>
               Milano, ITA
             </p>

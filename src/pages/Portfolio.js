@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
 import { CursorContext } from '../context/CursorContext';
-import ImageCollection1 from './nested-pages/ImageCollection1';
+import ImagesPreview from './nested-pages/ImagesPreview';
 
-const Portfolio = () => {
+const Portfolio = ({content}) => {
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+
+    useEffect(() => {
+    if (content && content.length) {
+      console.log(content);
+    }
+  }, [content]);
 
   return (
     <motion.section
@@ -26,11 +32,8 @@ const Portfolio = () => {
             className='flex flex-col lg:items-start'>
             <h1 className='h1 px-6 lg:p-0'>Portfolio</h1>
             <p className='pb-12 max-w-sm px-6 lg:p-0'>
-              {/* {content && localStorage.english ? content.portfolioEnglish : content.portfolioItalian} */}
+              {content && localStorage.english ? content.portfolioEnglish : content.portfolioItalian}
               <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
             </p>
             <Link to={'/contact'} className='btn px-4 bg-white hover:bg-orange text-tertiary hover:scale-105 rounded-full mt-4 mb-[30px] mx-auto lg:mx-0'>Contattami</Link>
           </motion.div>
@@ -40,14 +43,7 @@ const Portfolio = () => {
             onMouseEnter={ mouseEnterHandler }
             onMouseLeave={ mouseLeaveHandler }
             className='grid grid-cols-2 lg:gap-2'>
-            <ImageCollection1/>
-            {/* {content.portfolioImageCollection1.map(function(image, i){
-              return (
-                <div obj={image} key={i}  className='max-w-[250px] lg:max-w-[320px] h-[187px] lg:h-[220px] bg-orange overflow-hidden'>
-                  <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' src={image.file.url} alt={image.file.fileName}/>
-                </div>
-              )
-              })} */}
+            <ImagesPreview content={content}/>
           </motion.div>
         </div>
       </div>

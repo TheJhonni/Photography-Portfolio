@@ -1,12 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import WomanImg from '../img/about/woman.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
 import { CursorContext } from '../context/CursorContext';
 
-const About = () => {
+const About = ({content}) => {
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  const islargeScreen = window.innerWidth >= 1024;
+
+  useEffect(() => {
+    if (content) {
+      console.log(content)
+    }
+    if (localStorage.english) {
+      console.log(localStorage.english);
+    }
+  }, [content]);
 
   return (
     <motion.section
@@ -33,12 +43,9 @@ const About = () => {
             className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center
           items-center lg:items-start text-orange'>
           <h1 className='h1 px-6 lg:p-0'>About me</h1>
-          <p className='pb-12 max-w-sm px-6 lg:p-0'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          <p className='pb-12 max-w-sm px-6 lg:p-0'>
+            {content && localStorage.english && islargeScreen ? content.bioEnglish : content.bioItalian}
           <br />
-          <br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </p>
           <Link to={'/portfolio'}>
             <motion.div 
