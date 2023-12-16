@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header
       className='fixed w-full px-[30px] lg-[100px] 
-      z-30 h-[100px] lg:h-[140px] flex items-center lg:cursor-none'>
+      z-30 h-[100px] lg:h-[140px] flex items-center cursor-none'>
       <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
         <Link
           onMouseEnter={ mouseEnterHandler }

@@ -22,7 +22,7 @@ const About = ({content}) => {
     <motion.section
       initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       exit={{ opacity: 0 }} transition={transition1}
-      className='section bg-tertiary lg:cursor-none'>
+      className='section bg-tertiary cursor-none'>
       <div className='container mx-auto h-full relative'>
         <div
           className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24

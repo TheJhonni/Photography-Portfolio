@@ -35,7 +35,7 @@ const FullImagesCollection = ({ content }) => {
             animate={{ opacity: 1, y: 0, backgroundColor: '#1c2e40' }}
             exit={{ opacity: 0, y: '100%', backgroundColor: '#C67E28' }}
             transition={transition1}
-            className='section bg-tertiary lg:cursor-none'>
+            className='section bg-tertiary cursor-none'>
             <div className='container mx-auto h-full relative text-orange'>
                 <div className='flex flex-col lg:flex-row h-full items-center justify-start
                 gap-x-24 text-center lg:text-left pt-36 lg:pt-0 pb-8'>

@@ -12,7 +12,7 @@ import { client } from '../client';
 const AnimRoutes = () => {
   const location = useLocation();
   const [collectionLoading, setCollectionLoading] = useState(true);
-  const [content, setContent] = useState({});
+  const [content, setContent] = useState([]);
 
   const getCollection = useCallback(async () => {
     setCollectionLoading(true)
@@ -25,7 +25,7 @@ const AnimRoutes = () => {
           return setContent(fields)
         });
       } else {
-        setContent({})
+        setContent([])
       }
       setCollectionLoading(false);
     } catch (error) {
@@ -36,7 +36,7 @@ const AnimRoutes = () => {
 
   useEffect(() => {
     getCollection();
-  }, [getCollection]);
+  }, []);
 
   return (
     <AnimatePresence initial={ true } mode='wait'>

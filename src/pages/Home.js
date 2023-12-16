@@ -15,7 +15,7 @@ const Home = () => {
     <motion.section
       initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       exit={{ opacity: 0 }} transition={transition1}
-      className='section bg-tertiary lg:cursor-none'>
+      className='section bg-tertiary cursor-none'>
       <div className='flex justify-end max-h-96 lg:h-[600px]'> 
           <motion.div 
             initial={{ scale: 0}} animate={{ scale: 1 }}
