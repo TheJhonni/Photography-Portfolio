@@ -18,6 +18,24 @@ export async function getPortfolioData(){
       }
 }
 
+export async function getAssetById(id){
+  try {
+    const response = await contentfulSingleton.getContentfulClient.getAsset(id);
+    console.log(response.fields);
+    return response.fields;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export async function getCollectionImages(){
+  try {
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export function getAboutData(){
     
 }
