@@ -9,7 +9,7 @@ const ImagesPreview = ({ content }) => {
         if (content) {
             const filteredCollections = Object.keys(content).filter(key =>
                 key.includes('ImageCollection')
-            );
+            ); 
 
             const result = Object.fromEntries(
                filteredCollections.map(key => [key, content[key]])
