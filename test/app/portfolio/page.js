@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import {getAssetById, getPortfolioData} from '../lib/contentful/utils'
+import Preview from '../components/porfolio/preview';
 
 async function  getData(){
     return await getPortfolioData();
@@ -8,14 +8,20 @@ async function  getData(){
 async function Portfolio(){
     const data = await getData();
     return (
-        <div>
-        {data && data.map((portfolio) => {
-            return portfolio.collezioneImmagini.map((collezione) => {
-                return (<Link className="mr-4" href="/portfolio/[slug]/[...param]" as={`/portfolio/${collezione.fields.titolo}`} >{collezione.fields.titolo}</Link>, console.log(getAssetById(collezione.fields.copertina.sys.id)))
-                })
-            })
-        }
-    </div>)
+        <div className='flex'>
+            <div className='grid grid-cols-2 gap-4 w-[320px]'>
+                    {data && data.map((portfolio) => {
+                        return portfolio.collezioneImmagini.map(async (collezione) => {
+                            return (
+                                <Preview linkTo={collezione.fields.titolo} imageUrl={`https:${await getAssetById(collezione.fields.copertina.sys.id)}`} imageAlt={'a caso'}></Preview>
+                                )
+                            })
+                        })
+                    }
+            </div>
+        </div>
+    )
+        
 }
 
 export default Portfolio

@@ -20,9 +20,8 @@ export async function getPortfolioData(){
 
 export async function getAssetById(id){
   try {
-    const response = await contentfulSingleton.getContentfulClient.getAsset(id);
-    console.log(response.fields);
-    return response.fields;
+    const response = await contentfulSingleton.getContentfulClient().getAsset(id);
+    return response.fields.file.url;
   } catch (error) {
     console.log(error)
   }
