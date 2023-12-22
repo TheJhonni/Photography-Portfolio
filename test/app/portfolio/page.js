@@ -10,10 +10,11 @@ async function Portfolio(){
     return (
         <div>
         {data && data.map((portfolio) => {
-            portfolio.collezioneImmagini.map((collezione) => {
-                return <Link href={collezione.fields?.titolo}>{collezione.fields?.titolo}</Link>, console.log('banana', collezione.fields)
+            return portfolio.collezioneImmagini.map((collezione) => {
+                return (<Link className="mr-4" href="/portfolio/[slug]/[...param]" as={`/portfolio/${collezione.fields.titolo}`} >{collezione.fields.titolo}</Link>)
+                })
             })
-        })}
+        }
     </div>)
 }
 
