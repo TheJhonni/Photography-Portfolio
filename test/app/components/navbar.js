@@ -1,11 +1,10 @@
 "use client"
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
 
-    const pathname = usePathname()
-    console.log(pathname);
+    const pathname = usePathname();
 
     return (
         <nav

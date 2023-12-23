@@ -27,13 +27,19 @@ export async function getAssetById(id){
   }
 }
 
-export async function getCollectionImages(){
-  try {
-    
-  } catch (error) {
-    console.log(error)
-  }
-}
+// export async function getEntityByReference(reference) {
+//   try {
+//     const response = await contentfulSingleton.getContentfulClient().getEntries({
+//       'sys.id': reference,
+//     });
+//     console.log('respp', response.sys);
+
+//     return response.items[0];
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// }
 
 export function getAboutData(){
     
