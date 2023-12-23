@@ -11,10 +11,13 @@ async function Portfolio(){
         <div className='flex'>
             <div className='grid grid-cols-2 gap-4 w-[320px]'>
                     {data && data.map((portfolio) => {
-                        return portfolio.collezioneImmagini.map(async (collezione) => {
-                            console.log(collezione.fields.copertina);
+                        return portfolio.collezioneImmagini.map(async (collection) => {
                             return (
-                                <Preview linkTo={collezione.fields.titolo} imageUrl={`https:${await getAssetById(collezione.fields.copertina.sys.id)}`} imageAlt={'a caso'}></Preview>
+                                <Preview linkTo={collection.fields.titolo} 
+                                    imageUrl={`https:${await getAssetById(collection.fields.copertina.sys.id)}`} 
+                                    imageAlt={collection.fields.titolo}
+                                    >
+                                </Preview>
                                 )
                             })
                         })

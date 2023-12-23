@@ -4,6 +4,8 @@ import Logo from '../../public/foto/header/logo.png';
 import Navbar from './navbar';
 import Link from 'next/link';
 import Image from 'next/image';
+import MobileNav from './mobileNav';
+import Socials from './socials';
 
 const Header = () => {
 
@@ -23,8 +25,8 @@ const Header = () => {
         </Link>
         <Navbar/>
       </div>
-      {/* <Socials />
-      <MobileNav /> */}
+      <Socials />
+      <MobileNav />
     </header>
   );
 };
