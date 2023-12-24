@@ -21,6 +21,7 @@ export async function getPortfolioData(){
 export async function getAssetById(id){
   try {
     const response = await contentfulSingleton.getContentfulClient().getAsset(id);
+    console.log('response', response);
     return response.fields.file.url;
   } catch (error) {
     console.log(error)
@@ -34,7 +35,7 @@ export async function getEntityByReference(reference) {
     if (response) {
       return response.map((portfolio) => {
         return  portfolio.collezioneImmagini.map((collection) => {
-          return collection.fields.titolo === reference;
+          return collection.fields.title === reference;
         })
       })
     } else { 
@@ -46,9 +47,9 @@ export async function getEntityByReference(reference) {
   }
 }
 
-export async function getImmaginiByTitoloCollezione(titolo){
+export async function getImagesByTitleCollection(title){
   try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: 'collezioneImmagini', locale: 'it','fields.titolo':titolo });
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: 'collection', locale: 'it','fields.title':title });
     const responseData = response.items;    
     if (responseData) {
       return responseData.map(({ fields }) => {
