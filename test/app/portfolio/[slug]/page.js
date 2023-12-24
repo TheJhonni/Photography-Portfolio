@@ -1,14 +1,14 @@
-import { getEntityByReference } from "@/app/lib/contentful/utils";
+import { getImmaginiByTitoloCollezione } from "@/app/lib/contentful/utils";
 
 
-async function  getEntityByslug(reference){
-    return await getEntityByReference(reference).then((res) => console.log(res));
+async function  getData(reference){
+    return await getImmaginiByTitoloCollezione(reference.slug)
 }
 
 async function Page({ params }) {
-    const data = await getEntityByslug(params)
+    const data = await getData(params)
     if (data) {
-        console.log('data', data);
+        console.log('data', data.immagini);
         data.map((image) => {
             console.log('finally image!', image)
         })

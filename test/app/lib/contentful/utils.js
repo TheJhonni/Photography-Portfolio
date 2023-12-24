@@ -46,6 +46,23 @@ export async function getEntityByReference(reference) {
   }
 }
 
+export async function getImmaginiByTitoloCollezione(titolo){
+  try {
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: 'collezioneImmagini', locale: 'it','fields.titolo':titolo });
+    const responseData = response.items;    
+    if (responseData) {
+      return responseData.map(({ fields }) => {
+        return fields
+      });
+    } else { 
+     return []
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 export function getAboutData(){
     
 }
