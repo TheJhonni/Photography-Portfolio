@@ -10,9 +10,9 @@ async function Page({ params }) {
     const data = await getData(params);
     
     return (
-        <div>My Post: {params.slug}
+        <div>
+            <h1>{params.slug}</h1>
         {data && data.map((entity) => {
-            console.log('marioooottide', entity);
             return entity.imagesArray.map(async (image) => {
                 return <Image width={500} height={500}
                 src={`https:${await getAssetById(image.sys.id)}`} 

@@ -21,7 +21,6 @@ export async function getPortfolioData(){
 export async function getAssetById(id){
   try {
     const response = await contentfulSingleton.getContentfulClient().getAsset(id);
-    console.log('response', response);
     return response.fields.file.url;
   } catch (error) {
     console.log(error)
@@ -29,7 +28,6 @@ export async function getAssetById(id){
 }
 
 export async function getEntityByReference(reference) {
-  console.log('reference', reference);
   try {
     const response = await getPortfolioData()
     if (response) {

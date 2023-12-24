@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply bg-tertiary;
+  @apply bg-tertiary h-full w-full
 }
+/* .btn {
+  @apply btn px-4 bg-white hover:bg-orange text-tertiary hover:scale-105 rounded-full mt-4 mb-[30px] mx-auto lg:mx-0
+} */

@@ -15,7 +15,7 @@ export default function Home() {
 <section
       // initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       // exit={{ opacity: 0 }} transition={transition1}
-      className='section bg-tertiary cursor-none'>
+      className='section bg-tertiary'>
       <div className='flex justify-end max-h-96 lg:h-[600px]'> 
           <div 
             // initial={{ scale: 0}} animate={{ scale: 1 }}
