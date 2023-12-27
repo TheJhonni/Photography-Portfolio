@@ -28,10 +28,9 @@ async function Portfolio(){
                   key={portfolio.title}
                   className='flex flex-col lg:items-start'>
                 <h1 className='h1 px-6 lg:p-0 text-uppercase'>{portfolio.title}</h1>
-                <p className='pb-12 max-w-sm px-6 lg:p-0'>            
+                <p className='pb-12 max-w-sm px-6 lg:p-0'>
                   {portfolio.paragraph.content.map((c) => {
-                    console.log('paragrafooo ndo cazzo sei?!', c.content.map((c) => c.value));
-                    return c
+                    return c.content.map((c) => c.value)
                   })}
                   <br />
                 </p>

@@ -1,4 +1,5 @@
 
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
 const Preview = ({linkTo, imageUrl, imageAlt}) =>{

@@ -10,6 +10,8 @@ class ContentfulSingleton {
             });
       
             ContentfulSingleton.instance = this;
+          } else {
+            console.log(ContentfulSingleton.instance);
           }
       
           return ContentfulSingleton.instance;

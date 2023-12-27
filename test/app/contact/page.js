@@ -45,7 +45,7 @@ const Contact = () => {
     //   initial={{ opacity: 0, y: '100%' }} animate={{ opacity: 1, y: 0}}
     //   exit={{ opacity: 0, y: '100%' }} transition={transition1}
       className='section bg-tertiary'>
-      <div className='container mx-auto h-full'>
+      <div className='container mx-auto h-screen'>
         <div className='flex flex-col lg:flex-row h-full items-center justify-start 
           pt-36 gap-x-8 text-center lg:text-left'>
           <div

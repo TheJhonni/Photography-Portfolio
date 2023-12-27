@@ -22,7 +22,7 @@ const MobileNav = () => {
 //   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   return (
-    <nav className='text-primary xl:hidden cursor-none'>
+    <nav className='text-primary xl:hidden'>
       <div
         // onMouseEnter={mouseEnterHandler}
         // onMouseLeave={mouseLeaveHandler}

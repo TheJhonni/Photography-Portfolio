@@ -27,6 +27,23 @@ export async function getAssetById(id){
   }
 }
 
+export async function getImagesUrlByAssetIds(assetIds){
+  try {
+    const imagesUrls = await Promise.all(
+      assetIds.map(async (imageCollection) => {
+        return Promise.all(
+          imageCollection.map(async (id) => {
+            return getAssetById(id);
+          })
+        );
+      })
+    );
+    return imagesUrls;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export async function getEntityByReference(reference) {
   try {
     const response = await getPortfolioData()
@@ -47,12 +64,14 @@ export async function getEntityByReference(reference) {
 
 export async function getImagesByTitleCollection(title){
   try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: 'collection', locale: 'it','fields.title':title });
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'it','fields.title':title });
     const responseData = response.items;    
     if (responseData) {
       return responseData.map(({ fields }) => {
-        return fields
-      });
+        return fields.imagesArray.map((image) => {
+            return image.sys.id
+          }) 
+        })
     } else { 
      return []
     }

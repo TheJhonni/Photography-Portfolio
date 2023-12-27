@@ -7,7 +7,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      primary: 'Playfair Display',
+      'roboto': ['Roboto', 'sans-serif'],
+      primary: 'roboto',
       secondary: 'Mulish',
     },
     screens: {
@@ -22,7 +23,7 @@ module.exports = {
         secondary: '#172E44',
         tertiary: '#1c2e40',
         orange: '#C67E28',
-        grey: '#484B4B',
+        grey: '#484B4B', 
 
         accent: '#EEF7F9',
       },

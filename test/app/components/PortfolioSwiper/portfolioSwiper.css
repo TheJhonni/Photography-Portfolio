@@ -1,0 +1,39 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.swiper {
+    @apply w-full h-full;
+  }
+  
+  .swiper-slide {
+    @apply text-center text-18 bg-white flex justify-center items-center;
+  }
+  
+  .swiper-slide img {
+    @apply block w-full h-full object-cover;
+  }
+  
+  body {
+    @apply bg-black text-black;
+  }
+  
+  .mySwiper2 {
+    @apply h-80 w-full;
+  }
+  
+  .mySwiper {
+    @apply h-20 box-border p-10;
+  }
+  
+  .mySwiper .swiper-slide {
+    @apply w-1/4 h-full opacity-40;
+  }
+  
+  .mySwiper .swiper-slide-thumb-active {
+    @apply opacity-100;
+  }
+  
+  .swiper-slide img {
+    @apply block w-full h-full object-cover;
+  }
