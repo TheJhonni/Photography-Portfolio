@@ -13,8 +13,8 @@ async function Page({ params }) {
     const data = await getData(params);
     
     return (
-        <div className="container w-2/5 h-full py-40 mx-auto text-orange">
-            <h1 className="h1 px-6 lg:p-0 text-uppercase">{params.slug}</h1>
+        <div className="container w-full h-full py-32 mx-auto text-orange">
+            <h1 className="h1 text-center px-6 lg:p-0 text-uppercase">{params.slug}</h1>
             <PortfolioSwiper images={data}/>
         </div>
     )
