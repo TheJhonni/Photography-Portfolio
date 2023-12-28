@@ -4,7 +4,7 @@ const BackgroundVideo = () => {
   return (
     <div className='object-contain'>
         <video loop autoPlay muted>
-            <source src={require('../../../../public/videos/homevideo.mp4')} type="video/mp4" />
+          <source src="/videos/homevideo.mp4" type="video/mp4" />
         </video>
     </div>
   );

@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import { contentfulSingleton } from "./lib/contentful/client";
-// import BackgroundVideo from "./components/porfolio/videoHome/backgroundVideo";
+import BackgroundVideo from "./components/porfolio/videoHome/backgroundVideo";
 
 function getData(){
   contentfulSingleton.getContentfulClient().getEntries();
@@ -21,7 +21,7 @@ export default function Home() {
             // initial={{ scale: 0}} animate={{ scale: 1 }}
             // exit={{ scale: 0 }} transition={transition1}
             className='relative lg:w-full lg:right-0 lg:left-0 overflow-hidden'>
-              {/* <BackgroundVideo /> */}
+              <BackgroundVideo />
           </div>
       </div>
       <div className='container mx-auto h-full relative'>
