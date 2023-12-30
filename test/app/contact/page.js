@@ -6,37 +6,37 @@ import WomanImg from '../../public/foto/contact/woman.png';
 // import { CursorContext } from '../context/CursorContext';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
+import { sendEamilUtil } from '../lib/utils';
 
 const Contact = () => {
 //   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
   const [sending, setSending] = useState(false);
 
   const form = useRef();
-
-  const templateParams = {
-    name: name,
-    email: email,
-    message: message
-  }
+ 
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setSending(true)
-    emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, templateParams, process.env.EMAILJS_PUBBLIC_KEY)
-      .then((result) => {
-        console.log('email inviata correttamente!' , result.text);
-      }, (error) => {
-        console.log('si è verificato un problema' , error.text);
-        setSending(false)
-      });
-      setTimeout(() => {
+    setSending(true);
+    const formData = new FormData(form.current);
+    const name = formData.get('user_name');
+    const email = formData.get('user_email');
+    const message = formData.get('message');
+    const templateParams = {
+      name: name,
+      email: email,
+      message: message
+    }
+
+    if(sendEamilUtil(templateParams)){
+      setSending(false)
+    }else{
+      //TODO
+      //aggiungere controllo se qualcosa è andato storto tipo un setErrorMail(true);
+    }
+    setTimeout(() => {
         setSending(false);
-        setName('');
-        setEmail('');
-        setMessage('');
+        form.current.reset();
       }, 1000);
   };
 
@@ -61,16 +61,16 @@ const Contact = () => {
             <p className='mb-12'>I would love to get suggestions from you.</p>
             <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-y-4'>
               <div className='flex gap-x-10'>
-                <input onChange={e => setName(e.target.value)} value={name}
+                <input
                   name="user_name" className='outline-none border-b border-b-orange h-[60px] 
                   bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]'
                   type='text' placeholder='Your name'/>
-                <input onChange={e => setEmail(e.target.value)} value={email}
+                <input
                   name="user_email" className='outline-none border-b border-b-orange h-[60px] 
                   bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]'
                   type='text' placeholder='Your email'/>
               </div>
-              <textarea onChange={e => setMessage(e.target.value)} value={message}
+              <textarea name="message"
                 rows="4" className="w-full px-0 text-sm focus:ring-0 outline-none border-b border-b-orange h-[50px] placeholder:pt-4
                 bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]" placeholder="Write a comment..." required></textarea>
               <button type="submit" value="Send" className='btn px-4 mt-4 mb-[30px] mx-auto lg:mx-0 self-start bg-white 
