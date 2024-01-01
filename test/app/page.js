@@ -37,8 +37,7 @@ export default function Home() {
             <p className='text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-6'>
               Milano, ITA
             </p>
-            <Link href={'/contact'} className='btn px-4 text-sm lg:p-6 lg:text-md lg:mb-[30px] bg-white hover:bg-orange text-tertiary 
-              hover:scale-105 rounded-full'>
+            <Link href={'/contact'} className='btn px-4 text-sm lg:text-md lg:mb-[30px]'>
               Chiedi un preventivo
             </Link>
           </div>

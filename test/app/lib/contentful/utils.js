@@ -82,14 +82,40 @@ export async function getImagesByTitleCollection(title){
 }
 
 
-export function getAboutData(){
+export async function getBioData(){
+  try {
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_TYPE_BIO, locale: 'it' });
+    const responseData = response.items;
     
+    if (responseData) {
+      return responseData.map(({ fields }) => {
+        return fields
+      });
+    } else { 
+     return []
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function getHomeData(){
     
 }
 
-export function getContactData(){
+export async function getContactData(){
+  try {
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_CONTACTS, locale: 'it' });
+    const responseData = response.items;
     
+    if (responseData) {
+      return responseData.map(({ fields }) => {
+        return fields
+      });
+    } else { 
+     return []
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }

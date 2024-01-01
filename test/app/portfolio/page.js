@@ -2,7 +2,7 @@ import {getAssetById, getPortfolioData} from '../lib/contentful/utils'
 import Preview from '../components/porfolio/preview';
 import Link from 'next/link';
 
-async function  getData(){
+async function getData(){
     return await getPortfolioData();
 }
 

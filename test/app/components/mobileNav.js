@@ -47,7 +47,7 @@ const MobileNav = () => {
         // onMouseLeave={ mouseLeaveHandler }
         className='h-full flex flex-col justify-center items-center gap-y-8 text-primary font-primary font-bold text-3xl'>
           <li><Link href={'/'} onClick={()=> setOpenMenu(false)} >Home</Link></li>
-          <li><Link href={'/about'} onClick={()=> setOpenMenu(false)} >About</Link></li>
+          <li><Link href={'/bio'} onClick={()=> setOpenMenu(false)} >About</Link></li>
           <li><Link href={'/portfolio'} onClick={()=> setOpenMenu(false)} >Portfolio</Link></li>
           <li><Link href={'/contact'} onClick={()=> setOpenMenu(false)} >Contact</Link></li>
         </ul>

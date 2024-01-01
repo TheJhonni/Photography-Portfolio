@@ -5,8 +5,15 @@ import woman from '../../public/foto/contact/woman.png';
 
 import Image from "next/image";
 import Link from "next/link";
+import { getAssetById, getBioData } from '../lib/contentful/utils';
 
-const About = () => {
+async function getData(){
+  return await getBioData();
+};
+
+async function Bio(){
+    const data = await getData();
+    const imageUrl = `https:${await getAssetById(data[0].mainFoto.sys.id)}`
 //   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 //   const islargeScreen = window.innerWidth >= 1024;
 
@@ -18,14 +25,14 @@ const About = () => {
       <div className='container mx-auto h-full relative'>
         <div
           className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24
-          text-center lg:text-left lg:pt-16'>
+          text-center lg:text-left lg:pt-16 mb-[30px]'>
           <div
             // initial={{ scale: 0}} animate={{ scale: 1 }}
             // exit={{ scale: 0 }} transition={transition1}
             // onMouseEnter={ mouseEnterHandler }
             // onMouseLeave={ mouseLeaveHandler }
             className='flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'>
-          <Image width={500} height={500} src={woman} alt='Foto ikb' />
+            <Image width={500} height={500} src={imageUrl} alt='Foto ikb' />
           </div>
           <div
             // initial={{ opacity: 0, x: '50%' }} animate={{ opacity: 1, x: 0 }}
@@ -36,7 +43,7 @@ const About = () => {
           items-center lg:items-start text-orange'>
           <h1 className='h1 px-6 lg:p-0'>About me</h1>
           <p className='pb-12 max-w-sm px-6 lg:p-0'>
-            Bio          
+            {data && data[0].paraghaph.content[0].content[0].value}        
             <br />
           </p>
           <Link href='/portfolio'>
@@ -54,4 +61,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Bio;
