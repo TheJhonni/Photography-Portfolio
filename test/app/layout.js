@@ -1,6 +1,8 @@
+import { Suspense } from 'react'
 import Header from './components/header'
 
 import './globals.css'
+import Loader from './components/loader/loader'
 
 
 export const metadata = {
@@ -13,12 +15,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="h-screen">
         <Header />
-        {children}
         {/* <div
           variants={ cursorVariants }
           animate={ cursorBG }
           className='w-[32px] h-[32px] bg-primary fixed top-0 left-0 pointer-events-none
-          z-50 rounded-full'></div> */}
+        z-50 rounded-full'></div> */}
+          <Suspense fallback={ <Loader/> }>
+            {children}
+          </Suspense>
       </body>
     </html>
   )

@@ -1,5 +1,5 @@
 import { getAssetById, getImagesByTitleCollection, getImagesUrlByAssetIds } from "@/app/lib/contentful/utils";
-import PortfolioSwiper from '../../components/PortfolioSwiper/PortfolioSwiper';
+import PortfolioSwiper from '../../components/portfolioSwiper/PortfolioSwiper';
 
 async function getData(reference){
     const imagesCollectionIds = await getImagesByTitleCollection(reference.slug);
