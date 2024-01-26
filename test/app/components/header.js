@@ -8,10 +8,6 @@ import MobileNav from './mobileNav';
 import Socials from './socials';
 
 const Header = () => {
-  const [english, setEnglish] = useState(true)
-
-  useEffect(() => {
-  }, [english]);
 
   return (
     <header
@@ -24,7 +20,7 @@ const Header = () => {
           href={'/'} className='max-w-[60px]'>
           <Image src={Logo} alt='IKB-Logo' />
         </Link>
-        <Navbar english={english} setEnglish={setEnglish} />
+        <Navbar />
       </div>
       <Socials />
       <MobileNav />

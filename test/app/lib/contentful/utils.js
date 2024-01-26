@@ -2,14 +2,22 @@ import { contentfulSingleton } from "./client";
 
 
 
-export async function getPortfolioData(){
+export async function getDynamicData(location){
     try {
-        const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_PORTFOLIO, locale: 'it' });
-        const responseData = response.items;
+        const englishResponse = await contentfulSingleton.getContentfulClient().getEntries({ content_type: location });
+        const italianResponse = await contentfulSingleton.getContentfulClient().getEntries({ content_type: location, locale: 'it' });
+        const englishResponseData = englishResponse.items;
+        const italianResponseData = italianResponse.items;
         
-        if (responseData) {
-          return responseData.map(({ fields }) => {
-            return fields
+        if (englishResponseData && italianResponseData) {
+          const allData = [...englishResponseData, ...italianResponseData]
+          return allData.map(({ fields }, index) => {
+            const customFields = {
+              ...fields, 
+              paragraph: fields.paragraph.content[0].content[0].value,
+              locale: allData[index].sys.locale
+            }
+            return customFields;
           });
         } else { 
          return []
@@ -65,7 +73,7 @@ export async function getEntityByReference(reference) {
 
 export async function getImagesByTitleCollection(title){
   try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'it','fields.title':title });
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'it','fields.title':title });
     const responseData = response.items;    
     if (responseData) {
       return responseData.map(({ fields }) => {
@@ -73,45 +81,6 @@ export async function getImagesByTitleCollection(title){
             return image.sys.id
           }) 
         })
-    } else { 
-     return []
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
-export async function getBioData(){
-  try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_TYPE_BIO, locale: 'it' });
-    const responseData = response.items;
-    
-    if (responseData) {
-      return responseData.map(({ fields }) => {
-        return fields
-      });
-    } else { 
-     return []
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export function getHomeData(){
-    
-}
-
-export async function getContactData(){
-  try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_CONTACTS, locale: 'it' });
-    const responseData = response.items;
-    
-    if (responseData) {
-      return responseData.map(({ fields }) => {
-        return fields
-      });
     } else { 
      return []
     }
