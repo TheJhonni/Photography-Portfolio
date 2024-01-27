@@ -1,15 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Paragraph = (data) =>{;
-    const [currentData, setCurrentData] = useState('')
-    if (localStorage.getItem('language' === 'en')) {
-       const englishData = data.data.find((portfolio) => portfolio.locale === 'en-Us');
-       setCurrentData(englishData);
-    } else {
-        const italianData = data.data.find((portfolio) => portfolio.locale === 'it');
-        setCurrentData(italianData)
-    }
+async function Paragraph(data) {;
+    const [currentData, setCurrentData] = useState({})
+    const choosenLanguage = localStorage.getItem('language')
+
+    // TODO currentData non viene ancora aggiornato ogni volta che l'utente cambia lingua nella navbar!
+    useEffect(() => {
+        const fetchData = () => {
+            console.log(choosenLanguage);
+            if (choosenLanguage === 'en') {
+                const englishData = data.data.find((portfolio) => portfolio.locale === 'en-Us');
+                setCurrentData(englishData || {});
+            } else {
+                const italianData = data.data.find((portfolio) => portfolio.locale === 'it');
+                setCurrentData(italianData || {})
+            }
+        };
+
+        fetchData();
+    }, [choosenLanguage, data.data]);
+
 return (
     <>
         <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.title}</h1>
