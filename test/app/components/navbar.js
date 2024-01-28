@@ -1,22 +1,28 @@
 "use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [language, setLanguage] = useState('');
 
-  const [language, setLanguage] = useLocalStorage("language", "en")
   const handleLanguages = () => {
     language === "en" ? setLanguage("it") : setLanguage("en")
-  }
+  };
+
+  const updateLanguage = () => {
+    const currentLanguage = language;
+    localStorage.getItem("language", currentLanguage);
+  };
+
+  useEffect(() => {
+    updateLanguage();
+  }, []);
 
   const pathname = usePathname();
 
   return (
-      <nav
-        // onMouseEnter={ mouseEnterHandler }
-        // onMouseLeave={ mouseLeaveHandler }
-        className='hidden xl:flex gap-x-14 font-bold'>
+      <nav className='hidden xl:flex gap-x-14 font-bold'>
         <label className="relative inline-flex items-center me-5 cursor-pointer">
           <input
           onClick={() => handleLanguages()}

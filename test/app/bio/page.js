@@ -9,9 +9,7 @@ async function getData(){
 async function Bio(){
     const data = await getData();
     const imageUrl = `https:${await getAssetById(data[0].mainFoto.sys.id)}`
-//   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
-//   const islargeScreen = window.innerWidth >= 1024;
-
+  
   return (
     <section className='section bg-tertiary'>
       <div className='container mx-auto h-full relative'>
@@ -25,7 +23,7 @@ async function Bio(){
           items-center lg:items-start text-orange'>
           <h1 className='h1 px-6 lg:p-0'>About me</h1>
           <p className='pb-12 max-w-sm px-6 lg:p-0'>
-            {data && data[0].paraghaph.content[0].content[0].value}        
+            {data && data[0].paragraph.content[0].content[0].value}        
             <br />
           </p>
           <Link href='/portfolio'>

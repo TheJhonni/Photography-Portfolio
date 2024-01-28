@@ -1,35 +1,36 @@
 "use client";
 import { useEffect, useState } from "react";
 
-async function Paragraph(data) {;
-    const [currentData, setCurrentData] = useState({})
-    const choosenLanguage = localStorage.getItem('language')
+const Paragraph = ({ data }) => {
+  const [currentData, setCurrentData] = useState({});
+  const [storedLanguage, setStoredLanguage] = useState('')
 
-    // TODO currentData non viene ancora aggiornato ogni volta che l'utente cambia lingua nella navbar!
-    useEffect(() => {
-        const fetchData = () => {
-            console.log(choosenLanguage);
-            if (choosenLanguage === 'en') {
-                const englishData = data.data.find((portfolio) => portfolio.locale === 'en-Us');
-                setCurrentData(englishData || {});
-            } else {
-                const italianData = data.data.find((portfolio) => portfolio.locale === 'it');
-                setCurrentData(italianData || {})
-            }
-        };
+  const handleStorageChange = () => {
+    setStoredLanguage(localStorage.getItem("language"));
+    console.log('data', data);
 
-        fetchData();
-    }, [choosenLanguage, data.data]);
+    if (storedLanguage === "it") {
+      setCurrentData(data[1]);
+    } else {
+      setCurrentData(data[0]);
+    };
 
-return (
+    console.log('currentData ', currentData);
+  };
+
+  useEffect(() => {
+    handleStorageChange();
+  }, [storedLanguage]);
+
+  return (
     <>
-        <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.title}</h1>
-        <p className='pb-12 max-w-sm px-6 lg:p-0'>
-            {currentData.paragraph}
-            <br />
-        </p>
+      <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.title}</h1>
+      <p className='pb-12 max-w-sm px-6 lg:p-0'>
+        {currentData.paragraph}
+        <br />
+      </p>
     </>
-)
+  )
 }
 
 export default Paragraph;
