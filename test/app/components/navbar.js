@@ -12,12 +12,12 @@ const Navbar = () => {
 
   const updateLanguage = () => {
     const currentLanguage = language;
-    localStorage.getItem("language", currentLanguage);
+    localStorage.setItem("language", currentLanguage);
   };
 
   useEffect(() => {
     updateLanguage();
-  }, []);
+  }, [language]);
 
   const pathname = usePathname();
 
