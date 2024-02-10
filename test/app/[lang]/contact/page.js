@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useRef, useState } from 'react';
-import WomanImg from '../../public/foto/contact/woman.png';
+import WomanImg from '../../../public/foto/contact/woman.png';
 // import { motion } from 'framer-motion';
 // import { transition1 } from '../transitions';
 // import { CursorContext } from '../context/CursorContext';

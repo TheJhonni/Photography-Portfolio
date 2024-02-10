@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import Logo from '../../public/foto/header/logo.png';
+import Logo from '../../../public/foto/header/logo.png';
 import Navbar from './navbar';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ const Header = () => {
         <Navbar />
       </div>
       <Socials />
-      <MobileNav />
+      {/* <MobileNav /> */}
     </header>
   );
 };

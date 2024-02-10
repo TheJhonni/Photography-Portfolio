@@ -1,18 +1,27 @@
 "use client"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { replaceLangFromURL } from "../lib/utils";
 
 const Navbar = () => {
   const [language, setLanguage] = useState('');
+  const pathName = usePathname();
+  const params = useParams();
+  const router = useRouter();
 
   const handleLanguages = () => {
-    language === "en" ? setLanguage("it") : setLanguage("en")
+    language === "en" ? setLanguage("it") : setLanguage("en");
   };
 
   const updateLanguage = () => {
-    const currentLanguage = language;
-    localStorage.setItem("language", currentLanguage);
+    if (language) {
+      params.lang = language;
+    } else {
+      params.lang = 'en';
+    }
+    console.log('params', params);
+    router.push(replaceLangFromURL(pathName, params.lang));
   };
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { getAssetById, getImagesByTitleCollection, getImagesUrlByAssetIds } from "@/app/lib/contentful/utils";
+import { getAssetById, getImagesByTitleCollection, getImagesUrlByAssetIds } from "@/app/[lang]/lib/contentful/utils";
 import PortfolioSwiper from '../../components/portfolioSwiper/PortfolioSwiper';
 
 async function getData(reference){
