@@ -12,10 +12,7 @@ export function sendEamilUtil(templateParams){
 
 export function replaceLangFromURL(url, lang){
   lang = lang.replace('/', '');
-  const regex = /^\/\w+\/(.+)$/;
-  const modifiedString = url.replace(regex, `/${lang}/$1`);
-  console.log('modified', modifiedString);
-  console.log('lang', lang);
-  console.log('url', url);
-  return modifiedString;
+  const newUrl = `/${lang}/${url.substring(4)}`;
+  console.log('s',newUrl);
+  return newUrl;
 };
