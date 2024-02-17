@@ -16,12 +16,11 @@ const Navbar = () => {
     router.push(replaceLangFromURL(pathName,params.lang));
   };
 
-
   useEffect(()=>{
     if(params.lang){
       setLanguage(params.lang);
     }
-  })
+  }, [params])
 
 
   const pathname = usePathname();

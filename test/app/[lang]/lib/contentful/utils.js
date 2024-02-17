@@ -17,6 +17,7 @@ export async function getDynamicData(location){
               paragraph: fields.paragraph.content[0].content[0].value,
               locale: allData[index].sys.locale
             }
+            console.log(customFields);
             return customFields;
           });
         } else { 

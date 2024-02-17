@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { contentfulSingleton } from "./lib/contentful/client";
 import BackgroundVideo from "./components/porfolio/videoHome/backgroundVideo";
+import CityText from "./components/home/cityText";
+import MainSharedButton from "./components/mainSharedButton";
 
 function getData(){
   contentfulSingleton.getContentfulClient().getEntries();
@@ -24,11 +26,9 @@ export default function Home() {
               <h1 className='h1 overflow-hidden'> Photographer <br/>
               & Film Maker</h1>
               <p className='text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-6'>
-                Milano, ITA
+                <CityText/>, ITA
               </p>
-              <Link href={'/contact'} className='btn px-4 text-sm lg:text-md lg:mb-[30px]'>
-                Chiedi un preventivo
-              </Link>
+              <MainSharedButton route={'homePage'} />
             </div>
           </div>
         </div>
