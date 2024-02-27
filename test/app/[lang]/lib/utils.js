@@ -13,6 +13,5 @@ export function sendEamilUtil(templateParams){
 export function replaceLangFromURL(url, lang){
   lang = lang.replace('/', '');
   const newUrl = `/${lang}/${url.substring(4)}`;
-  console.log('s',newUrl);
   return newUrl;
 };

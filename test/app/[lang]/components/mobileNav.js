@@ -2,32 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { CgMenuRight } from 'react-icons/cg';
 import Link from 'next/link';
+import { usePathname, useParams, useRouter } from "next/navigation";
+import { replaceLangFromURL } from '../lib/utils';
+
 
 const MobileNav = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const [language, setLanguage] = useState('');
-  const defaultLanguage = "en";
+  const [language, setLanguage] = useState('en');
+  const [openMenu, setOpenMenu] = useState(true);
+  const pathName = usePathname();
+  const params = useParams();
+  const router = useRouter();
 
-  const handleLanguages = () => {
-    language === "en" ? setLanguage("it") : setLanguage("en")
+  const handleLanguages = (x) => {
+    x.target.checked ? setLanguage('en') : setLanguage('it')
+    params.lang = x.target.checked ? 'en' : 'it';
+    router.push(replaceLangFromURL(pathName,params.lang));
   };
 
-  const updateLanguage = () => {
-    if (!language) {
-      const currentLanguage = defaultLanguage;
-      setLanguage(currentLanguage)
-      localStorage.getItem("language", currentLanguage);
-    } else {
-      const currentLanguage = language;
-      localStorage.getItem("language", currentLanguage);
+  useEffect(()=>{
+    if(params.lang){
+      setLanguage(params.lang);
     }
-    // console.log(localStorage.getItem("language"));
-    // console.log('localStorage lang', language);
-  };
-
-  useEffect(() => {
-    updateLanguage();
-  }, [language]);
+  }, [params])
 
   return (
     <nav className="text-primary xl:hidden">
@@ -35,23 +31,22 @@ const MobileNav = () => {
         className='text-3xl text-[#fff] cursor-pointer'>
       <CgMenuRight />
       </div>
-      <div className='bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20'>
+      <div className={`${openMenu ? 'bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20' : 'hidden'}`}>
         <div onClick={() => setOpenMenu(false)}
           className='text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer'>
           <IoMdClose />
         </div>
         <ul className='h-full flex flex-col justify-center items-center gap-y-8 text-primary font-primary font-bold text-3xl'>
-          <li><Link href={'/'} onClick={()=> setOpenMenu(false)} >Home</Link></li>
-          <li><Link href={'/bio'} onClick={()=> setOpenMenu(false)} >About</Link></li>
-          <li><Link href={'/portfolio'} onClick={()=> setOpenMenu(false)} >Portfolio</Link></li>
-          <li><Link href={'/contact'} onClick={()=> setOpenMenu(false)} >Contact</Link></li>
-          <li>
+          <li><Link href={`/${language}/`} onClick={()=> setOpenMenu(false)} >Home</Link></li>
+          <li><Link href={`/${language}/bio`} onClick={()=> setOpenMenu(false)} >About</Link></li>
+          <li><Link href={`/${language}/portfolio`} onClick={()=> setOpenMenu(false)} >Portfolio</Link></li>
+          <li><Link href={`/${language}/contact`} onClick={()=> setOpenMenu(false)} >Contact</Link></li>
+          <li className='bg-secondary rounded-full px-3 pt-2 pb-1'>
             <label className="relative inline-flex items-center me-5 cursor-pointer">
-              <input
-              defaultChecked={defaultLanguage} 
-              onClick={() => handleLanguages()}
-              type="checkbox" 
-              value={language} 
+            <input
+              onChange={handleLanguages}
+              type="checkbox"
+              checked={language === 'en'}
               className="sr-only peer" />
               <div className="w-11 h-6 bg-white rounded-full peer peer-focus:ring-4 peer-focus:ring-orange 
                 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-['']

@@ -17,7 +17,6 @@ export async function getDynamicData(location){
               paragraph: fields.paragraph.content[0].content[0].value,
               locale: allData[index].sys.locale
             }
-            console.log(customFields);
             return customFields;
           });
         } else { 
@@ -31,6 +30,7 @@ export async function getDynamicData(location){
 export async function getAssetById(id){
   try {
     const response = await contentfulSingleton.getContentfulClient().getAsset(id);
+    console.log(response);
     return response.fields.file.url;
   } catch (error) {
     console.log(error)
@@ -74,7 +74,8 @@ export async function getEntityByReference(reference) {
 
 export async function getImagesByTitleCollection(title){
   try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'it','fields.title':title });
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'en', 'fields.title':title });
+    console.log('response', response.items);
     const responseData = response.items;    
     if (responseData) {
       return responseData.map(({ fields }) => {

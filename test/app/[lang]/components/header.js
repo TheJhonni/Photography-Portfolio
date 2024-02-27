@@ -20,7 +20,7 @@ const Header = () => {
         <Navbar />
       </div>
       <Socials />
-      {/* <MobileNav /> */}
+      <MobileNav />
     </header>
   );
 };

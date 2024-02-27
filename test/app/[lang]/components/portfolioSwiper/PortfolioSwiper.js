@@ -7,8 +7,13 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './portfolioSwiper.css'
+import { useEffect } from "react";
 
 async function PortfolioSwiper({ images }) {
+
+  useEffect(() => {
+    console.log(images);
+  }, [images])
   
     return (
       <>
