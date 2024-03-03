@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { CgMenuRight } from 'react-icons/cg';
-import Link from 'next/link';
 import { usePathname, useParams, useRouter } from "next/navigation";
 import { replaceLangFromURL } from '../lib/utils';
+import TransitionLink from './transitionLink';
 
 
 const MobileNav = () => {
@@ -37,10 +37,10 @@ const MobileNav = () => {
           <IoMdClose />
         </div>
         <ul className='h-full flex flex-col justify-center items-center gap-y-8 text-primary font-primary font-bold text-3xl'>
-          <li><Link href={`/${language}/`} onClick={()=> setOpenMenu(false)} >Home</Link></li>
-          <li><Link href={`/${language}/bio`} onClick={()=> setOpenMenu(false)} >About</Link></li>
-          <li><Link href={`/${language}/portfolio`} onClick={()=> setOpenMenu(false)} >Portfolio</Link></li>
-          <li><Link href={`/${language}/contact`} onClick={()=> setOpenMenu(false)} >Contact</Link></li>
+          <li><TransitionLink href={`/${language}/`} label={'Home'} /></li>
+          <li><TransitionLink href={`/${language}/bio`} label={'Bio'} /></li>
+          <li><TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} /></li>
+          <li><TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} /></li>
           <li className='bg-secondary rounded-full px-3 pt-2 pb-1'>
             <label className="relative inline-flex items-center me-5 cursor-pointer">
             <input

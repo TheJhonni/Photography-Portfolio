@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname, useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { replaceLangFromURL } from "../lib/utils";
+import TransitionLink from "./transitionLink";
 
 const Navbar = () => {
   const [language, setLanguage] = useState('en');
@@ -40,14 +41,10 @@ const Navbar = () => {
             after:w-5 after:transition-all peer-checked:bg-orange"></div>
           <span className="ml-4 ms-3 text-sm font-medium text-orange">{language === 'en' ? 'English' : 'Italiano'}</span>
         </label>
-        <Link href={`/${language}/`} className={'w-min w-max text-center text-orange ' + 
-          (pathname === '/' ? 'border-b border-b-orange' : '')}>Home</Link>
-        <Link href={`/${language}/bio/`} className={'w-min w-max text-center text-orange ' + 
-          (pathname === '/bio' ? 'border-b border-b-orange' : '')}>Bio</Link>
-        <Link href={`/${language}/portfolio`} className={'w-min w-max text-center text-orange ' + 
-          (pathname === '/portfolio' ? 'border-b border-b-orange' : '')}>Portfolio</Link>
-        <Link href={`/${language}/contact`} className={'w-12 text-center text-orange ' + 
-          (pathname === '/contact' ? 'border-b border-b-orange' : '')}>{language === 'en' ? 'Contacts' : 'Contatti'}</Link>
+        <TransitionLink href={`/${language}/`} label={'Home'} />
+        <TransitionLink href={`/${language}/bio/`} label={'Bio'} />
+        <TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} />
+        <TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} />
       </nav>
   )
 };

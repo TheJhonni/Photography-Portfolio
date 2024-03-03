@@ -17,3 +17,21 @@ body {
     @apply bg-white hover:bg-orange text-tertiary hover:scale-105 rounded-full px-4 lg:p-6 mt-4 mb-[30px] mx-auto lg:mx-0;
   }
 }
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

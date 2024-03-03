@@ -1,10 +1,9 @@
-import { getAssetById, getImagesByTitleCollection, getImagesUrlByAssetIds } from "@/app/[lang]/lib/contentful/utils";
+import { getImagesByTitleCollection, getImagesUrlByAssetIds } from "@/app/[lang]/lib/contentful/utils";
 import PortfolioSwiper from '../../components/portfolioSwiper/PortfolioSwiper';
 
 async function getData(reference){
     const imagesCollectionIds = await getImagesByTitleCollection(reference.slug);
     if(imagesCollectionIds) {
-        console.log('refff', imagesCollectionIds);
         const imagesUrls = await getImagesUrlByAssetIds(imagesCollectionIds);
         return imagesUrls;
     }

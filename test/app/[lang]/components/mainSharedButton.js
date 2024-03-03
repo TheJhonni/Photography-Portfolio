@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const translations = {
@@ -26,6 +26,11 @@ const MainSharedButton = ({route}) => {
   const [buttonText, setButtonText] = useState(translations.en[route]);
   const [lang, setLang] = useState('en')
   const params = useParams();
+  const router = useRouter();
+
+  const handleClick = () => {
+    animatePageOut(route, router);
+  };
 
   useEffect(() => {
     setButtonText(translations[params.lang][route]);
@@ -34,7 +39,7 @@ const MainSharedButton = ({route}) => {
 
   return (
     
-      <Link href={`/${lang}/${links[route]}`} className='btn px-4 bg-white hover:bg-orange text-tertiary 
+      <Link href={`/${lang}/${links[route]}`} onClick={handleClick} className='btn px-4 bg-white hover:bg-orange text-tertiary 
             hover:scale-105 rounded-full mt-4 mb-[30px] mx-auto lg:mx-0'>
         {buttonText}
       </Link>

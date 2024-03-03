@@ -30,7 +30,6 @@ export async function getDynamicData(location){
 export async function getAssetById(id){
   try {
     const response = await contentfulSingleton.getContentfulClient().getAsset(id);
-    console.log(response);
     return response.fields.file.url;
   } catch (error) {
     console.log(error)
@@ -74,8 +73,7 @@ export async function getEntityByReference(reference) {
 
 export async function getImagesByTitleCollection(title){
   try {
-    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_COLLECTION, locale: 'en', 'fields.title':title });
-    console.log('response', response.items);
+    const response = await contentfulSingleton.getContentfulClient().getEntries({ content_type: process.env.CONTENTFUL_CONTENT_TYPE_COLLECTION, 'fields.title':title });
     const responseData = response.items;    
     if (responseData) {
       return responseData.map(({ fields }) => {

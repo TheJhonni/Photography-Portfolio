@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import { contentfulSingleton } from "./lib/contentful/client";
 import BackgroundVideo from "./components/porfolio/videoHome/backgroundVideo";
 import CityText from "./components/home/cityText";
