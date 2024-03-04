@@ -12,19 +12,21 @@ const MobileNav = () => {
   const pathName = usePathname();
   const params = useParams();
   const router = useRouter();
-
+  
   const handleLanguages = (x) => {
     x.target.checked ? setLanguage('en') : setLanguage('it')
     params.lang = x.target.checked ? 'en' : 'it';
     router.push(replaceLangFromURL(pathName,params.lang));
   };
-
+  
   useEffect(()=>{
     if(params.lang){
       setLanguage(params.lang);
     }
-  }, [params])
+  }, [params]);
 
+  const pathname = usePathname();
+  
   return (
     <nav className="text-primary xl:hidden">
       <div onClick={() => setOpenMenu(true)}
@@ -37,10 +39,18 @@ const MobileNav = () => {
           <IoMdClose />
         </div>
         <ul className='h-full flex flex-col justify-center items-center gap-y-8 text-primary font-primary font-bold text-3xl'>
-          <li><TransitionLink href={`/${language}/`} label={'Home'} /></li>
-          <li><TransitionLink href={`/${language}/bio`} label={'Bio'} /></li>
-          <li><TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} /></li>
-          <li><TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} /></li>
+          <li className={`${(pathname === ('/en' || '/it')) ? 'border-b border-b-orange' : ''}`}>
+            <TransitionLink href={`/${language}/`} label={'Home'} />
+          </li>
+          <li className={`${(pathname.includes('bio')) ? 'border-b border-b-orange' : ''}`}>
+            <TransitionLink href={`/${language}/bio`} label={'Bio'} />
+          </li>
+          <li className={`${(pathname.includes('portfolio')) ? 'border-b border-b-orange' : ''}`}>
+            <TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} />
+          </li>
+          <li className={`${(pathname.includes('contact')) ? 'border-b border-b-orange' : ''}`}>
+            <TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} />
+          </li>
           <li className='bg-secondary rounded-full px-3 pt-2 pb-1'>
             <label className="relative inline-flex items-center me-5 cursor-pointer">
             <input

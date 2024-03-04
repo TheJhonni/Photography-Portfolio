@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link";
 import { usePathname, useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { replaceLangFromURL } from "../lib/utils";
@@ -11,9 +10,9 @@ const Navbar = () => {
   const params = useParams();
   const router = useRouter();
 
-  const handleLanguages = (x) => {
-    x.target.checked ? setLanguage('en') : setLanguage('it')
-    params.lang = x.target.checked ? 'en' : 'it';
+  const handleLanguages = (e) => {
+    e.target.checked ? setLanguage('en') : setLanguage('it')
+    params.lang = e.target.checked ? 'en' : 'it';
     router.push(replaceLangFromURL(pathName,params.lang));
   };
 
@@ -41,10 +40,18 @@ const Navbar = () => {
             after:w-5 after:transition-all peer-checked:bg-orange"></div>
           <span className="ml-4 ms-3 text-sm font-medium text-orange">{language === 'en' ? 'English' : 'Italiano'}</span>
         </label>
-        <TransitionLink href={`/${language}/`} label={'Home'} />
-        <TransitionLink href={`/${language}/bio/`} label={'Bio'} />
-        <TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} />
-        <TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} />
+        <span className={`${(pathname === ('/en' || '/it')) ? 'border-b border-b-orange' : ''}`}>
+          <TransitionLink href={`/${language}/`} label={'Home'} />
+        </span>
+        <span className={`${(pathname.includes('bio')) ? 'border-b border-b-orange' : ''}`}>
+          <TransitionLink href={`/${language}/bio/`} label={'Bio'} />
+        </span>
+        <span className={`${(pathname.includes('portfolio')) ? 'border-b border-b-orange' : ''}`}>
+          <TransitionLink href={`/${language}/portfolio`} label={'Portfolio'} />
+        </span>
+        <span className={`${(pathname.includes('contact')) ? 'border-b border-b-orange' : ''}`}>
+          <TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} />
+        </span>
       </nav>
   )
 };
