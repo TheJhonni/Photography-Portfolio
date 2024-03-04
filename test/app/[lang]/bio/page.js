@@ -23,10 +23,10 @@ async function Bio(){
           </div>
           <div className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center
           items-center lg:items-start text-orange'>
-          <p className='pb-12 max-w-sm px-6 lg:p-0'>
+          <div className='pb-12 max-w-sm px-6 lg:p-0'>
             {data && <Paragraph data={data} />}        
             <br />
-          </p>
+          </div>
           <MainSharedButton route={'bio'} />
         </div>
         </div>

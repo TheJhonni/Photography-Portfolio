@@ -22,7 +22,6 @@ const Navbar = () => {
     }
   }, [params])
 
-
   const pathname = usePathname();
 
   return (
