@@ -39,7 +39,7 @@ const Navbar = () => {
             after:w-5 after:transition-all peer-checked:bg-orange"></div>
           <span className="ml-4 ms-3 text-sm font-medium text-orange">{language === 'en' ? 'English' : 'Italiano'}</span>
         </label>
-        <span className={`${(pathname === ('/en' || '/it')) ? 'border-b border-b-orange' : ''}`}>
+        <span className={`${(pathname === '/en' || pathname === '/it') ? 'border-b border-b-orange' : ''}`}>
           <TransitionLink href={`/${language}/`} label={'Home'} />
         </span>
         <span className={`${(pathname.includes('bio')) ? 'border-b border-b-orange' : ''}`}>

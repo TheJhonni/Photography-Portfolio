@@ -1,7 +1,5 @@
 import { contentfulSingleton } from "./client";
 
-
-
 export async function getDynamicData(location){
     try {
         const englishResponse = await contentfulSingleton.getContentfulClient().getEntries({ content_type: location });
@@ -23,18 +21,22 @@ export async function getDynamicData(location){
          return []
         }
       } catch (error) {
-        console.log(error);
+        handleErrors(error)
       }
-}
+};
 
 export async function getAssetById(id){
   try {
     const response = await contentfulSingleton.getContentfulClient().getAsset(id);
-    return response.fields.file.url;
+    if (response) {
+      return response.fields.file.url;
+    } else { 
+      return ''
+    }
   } catch (error) {
-    console.log(error)
+    handleErrors(error)
   }
-}
+};
 
 export async function getImagesUrlByAssetIds(assetIds){
   try {
@@ -49,9 +51,9 @@ export async function getImagesUrlByAssetIds(assetIds){
     );
     return imagesUrls;
   } catch (error) {
-    console.log(error)
+    handleErrors(error)
   }
-}
+};
 
 export async function getEntityByReference(reference) {
   try {
@@ -66,10 +68,9 @@ export async function getEntityByReference(reference) {
      return []
     }
   } catch (error) {
-    console.error(error);
-    throw error;
+    handleErrors(error)
   }
-}
+};
 
 export async function getImagesByTitleCollection(title){
   try {
@@ -85,6 +86,11 @@ export async function getImagesByTitleCollection(title){
      return []
     }
   } catch (error) {
-    console.log(error);
+    handleErrors(error)
   }
-}
+};
+
+export function handleErrors(error) {
+  console.error('An error occurred:', error);
+  throw error;
+};

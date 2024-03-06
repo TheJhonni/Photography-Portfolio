@@ -1,7 +1,9 @@
 "use client";
+
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { animatePageOut } from "../animations";
 
 const translations = {
   en: {
@@ -22,6 +24,12 @@ const links = {
   bio: '/portfolio'
 }
 
+const routesRef = {
+  homePage: 'Home',
+  portfolio: 'Portfolio',
+  bio: 'Bio'
+}
+
 const MainSharedButton = ({route}) => {
   const [buttonText, setButtonText] = useState(translations.en[route]);
   const [lang, setLang] = useState('en')
@@ -29,7 +37,7 @@ const MainSharedButton = ({route}) => {
   const router = useRouter();
 
   const handleClick = () => {
-    animatePageOut(route, router);
+    animatePageOut(route, router, routesRef[route]);
   };
 
   useEffect(() => {
