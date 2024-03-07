@@ -1,7 +1,17 @@
 import gsap from "gsap";
 
+const handleClick = (e) => {
+  if (e) {
+    return
+  }
+  languageInput.removeEventListener("click", handleClick);
+};
+
 export const animatePageIn = () => {
   const transitionElement = document.getElementById("transition-element");
+
+  const languageInput = document.getElementById("language-input");
+  languageInput.addEventListener("click", handleClick);
   
   if (transitionElement) {
     const tl = gsap.timeline();
@@ -28,10 +38,10 @@ export const animatePageIn = () => {
 export const animatePageOut = (href, router, label) => {
   const animationWrapper = document.getElementById("transition-element");
   const history = window.history.state.__PRIVATE_NEXTJS_INTERNALS_TREE[1].children[1].children[0];
-  const routesAlreadyActive = history !== label.toLowerCase();
+  const routesNotDouble = history !== label.toLowerCase();
   const hrefAlreadyInHomePage = (window.location.pathname === '/en' || window.location.pathname === '/it') && label === 'Home';
 
-  if (animationWrapper && routesAlreadyActive && !hrefAlreadyInHomePage) {
+  if (animationWrapper && routesNotDouble && !hrefAlreadyInHomePage) {
     const tl = gsap.timeline();
 
     tl.set(animationWrapper, {
