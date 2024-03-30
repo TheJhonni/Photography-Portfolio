@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-tertiary h-full w-full relative font-roboto;
+}
+.h1 {
+  @apply text-[54px] lg:text-[108px] font-primary font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2;
+}
+.section {
+  @apply h-screen w-screen;
+}
+
+@layer components {
+  .btn {
+    @apply bg-white hover:bg-orange text-tertiary hover:scale-105 rounded-full px-4 lg:p-6 mt-4 mb-[30px] mx-auto lg:mx-0;
+  }
+}
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

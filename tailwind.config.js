@@ -1,8 +1,14 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     fontFamily: {
-      primary: 'Playfair Display',
+      'roboto': ['Roboto', 'sans-serif'],
+      primary: 'roboto',
       secondary: 'Mulish',
     },
     screens: {
@@ -17,11 +23,12 @@ module.exports = {
         secondary: '#172E44',
         tertiary: '#1c2e40',
         orange: '#C67E28',
-        grey: '#484B4B',
+        grey: '#484B4B', 
+        brown:'#524438',
 
         accent: '#EEF7F9',
       },
     },
   },
   plugins: [],
-};
+}
