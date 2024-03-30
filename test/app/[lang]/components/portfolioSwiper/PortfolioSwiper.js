@@ -7,8 +7,13 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './portfolioSwiper.css'
+import { useEffect } from "react";
+import { animatePageIn } from "../../animations";
 
 async function PortfolioSwiper({ images }) {
+  useEffect(() => {
+    animatePageIn();
+  }, []);
   
     return (
       <>
@@ -17,8 +22,18 @@ async function PortfolioSwiper({ images }) {
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
         }}
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={1}
+        spaceBetween={40}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        }}
         freeMode={true}
         pagination={{
           clickable: true,

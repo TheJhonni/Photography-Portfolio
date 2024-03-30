@@ -8,7 +8,7 @@ import TransitionLink from './transitionLink';
 
 const MobileNav = () => {
   const [language, setLanguage] = useState('en');
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   const pathName = usePathname();
   const params = useParams();
   const router = useRouter();
@@ -26,6 +26,10 @@ const MobileNav = () => {
       setLanguage(params.lang);
     }
   }, [params]);
+  
+  useEffect(()=>{
+    setOpenMenu(false)
+  }, [pathName]);
 
   const pathname = usePathname();
 
@@ -34,7 +38,7 @@ const MobileNav = () => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setOpenMenu(false);
       }
-    };
+  };
 
     document.addEventListener("mousedown", handleClickOutside);
 

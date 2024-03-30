@@ -24,6 +24,7 @@ module.exports = {
         tertiary: '#1c2e40',
         orange: '#C67E28',
         grey: '#484B4B', 
+        brown:'#524438',
 
         accent: '#EEF7F9',
       },

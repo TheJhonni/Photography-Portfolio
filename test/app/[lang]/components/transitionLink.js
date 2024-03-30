@@ -5,7 +5,8 @@ import { animatePageOut } from "../animations";
 
 export default function TransitionLink({
   href,
-  label
+  label,
+  children
 }) {
   const router = useRouter();
 
@@ -15,10 +16,10 @@ export default function TransitionLink({
 
   return (
     <button
-    className='w-min w-max text-center text-orange'
+    className='text-center text-orange'
       onClick={handleClick}
     >
-      {label}
+       {children || label}
     </button>
   );
 }

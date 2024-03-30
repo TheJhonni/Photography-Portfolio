@@ -12,7 +12,7 @@ export default function Template({ children }) {
     <div>
       <div
         id="transition-element"
-        className="w-screen h-screen bg-black z-100 fixed top-0 left-0"
+        className="w-screen h-screen backdrop-blur-lg bg-white/10  z-40 absolute top-0 left-0"
       ></div>
       {children}
     </div>

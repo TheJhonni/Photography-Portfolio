@@ -1,6 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { animatePageIn } from "../../animations";
 
 const Paragraph = ({ data }) => {
   const [currentData, setCurrentData] = useState(data[0]);
@@ -16,6 +17,7 @@ const Paragraph = ({ data }) => {
 
   useEffect(() => {
     handleStorageChange();
+    animatePageIn();
   }, [params]);
 
   return (
