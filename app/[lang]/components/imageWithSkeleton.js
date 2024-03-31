@@ -16,19 +16,20 @@ const ImageWithSkeleton  = ({width, height, src, alt}) => {
         setLoadingImage(false);
       };
 
-return (<>
-<Suspense fallback={<p>Loading feed...</p>}>
-<Image
-        className={loadingImage ? 'hidden' : ''}
-        onLoad={handleImageLoad}
-        onError={handleImageLoadingComplete}
-        width={width}
-        height={height}
-        src={src}
-        alt={alt} />
-</Suspense>
-        
-    </>)
+  return (
+          <>
+            <Suspense fallback={<p>Loading feed...</p>}>
+              <Image
+                className={loadingImage ? 'hidden' : ''}
+                onLoad={handleImageLoad}
+                onError={handleImageLoadingComplete}
+                width={width}
+                height={height}
+                src={src}
+                alt={alt} />
+            </Suspense>  
+          </>
+        )
 }
 
 export default ImageWithSkeleton;

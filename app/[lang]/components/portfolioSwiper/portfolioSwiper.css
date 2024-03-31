@@ -3,7 +3,7 @@
     @apply w-full h-full;
     
     .swiper-slide {
-      @apply text-center text-lg bg-white flex justify-center items-center;
+      @apply text-center text-lg flex justify-center items-center;
     }
     
     .swiper-slide img {
