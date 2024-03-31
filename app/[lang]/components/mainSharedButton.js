@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { animatePageOut } from "../animations";
+import TransitionLink from "./transitionLink";
 
 const translations = {
   en: {
@@ -46,11 +47,8 @@ const MainSharedButton = ({route}) => {
   }, [params, route]);
 
   return (
-    
-      <Link href={`/${lang}/${links[route]}`} onClick={handleClick} className='btn px-4 bg-white hover:bg-orange text-tertiary 
-            hover:scale-105 rounded-full mt-4 mb-[30px] mx-auto lg:mx-0'>
-        {buttonText}
-      </Link>
+      <TransitionLink href={`/${lang}/${links[route]}`} onClick={handleClick} label={buttonText} isButton='true'>
+      </TransitionLink>
   );
 };
 
