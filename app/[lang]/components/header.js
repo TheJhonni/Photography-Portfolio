@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MobileNav from './mobileNav';
 import Socials from './socials';
-import TransitionLink from './transitionLink';
 import { useParams } from 'next/navigation';
 
 const Header = () => {
@@ -26,9 +25,9 @@ const Header = () => {
       className='flex items-center fixed w-full px-[30px] lg-[100px] 
       z-30 h-[100px] lg:h-[140px]'>
       <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
-        <TransitionLink href={`/${language}/`} label={'Home'}>
-            <Image src={Logo} alt='IKB-Logo' className='max-w-[60px]'/>
-        </TransitionLink>
+        <Link href={`/${language}/`} className='max-w-[60px]'>
+          <Image src={Logo} alt='IKB-Logo' />
+        </Link>
         <Navbar />
       </div>
       <Socials />
