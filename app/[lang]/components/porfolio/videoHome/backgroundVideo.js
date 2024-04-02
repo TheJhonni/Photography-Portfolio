@@ -4,7 +4,7 @@ import React from 'react';
 const BackgroundVideo = () => {
   return (
     <div className='object-contain'>
-        <video loop autoPlay muted>
+        <video loop muted>
           <source src="/videos/homevideo.mp4" type="video/mp4" />
         </video>
     </div>
