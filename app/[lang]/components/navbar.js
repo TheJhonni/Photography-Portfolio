@@ -19,8 +19,10 @@ const Navbar = () => {
   useEffect(()=>{
     if(params.lang){
       setLanguage(params.lang);
+    } else {
+      setLanguage('en')
     }
-  }, [params])
+  }, [params.lang])
 
   const pathname = usePathname();
 

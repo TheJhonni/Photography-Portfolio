@@ -24,8 +24,10 @@ const MobileNav = () => {
   useEffect(()=>{
     if(params.lang){
       setLanguage(params.lang);
+    } else {
+      setLanguage('en')
     }
-  }, [params]);
+  }, [params.lang])
   
   useEffect(()=>{
     setOpenMenu(false)
