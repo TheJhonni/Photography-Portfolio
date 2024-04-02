@@ -21,11 +21,10 @@ async function Bio(){
           <div className='flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'>
             <Image width={500} height={500} src={imageUrl} alt='Foto Bio ikb' />
           </div>
-          <div className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center
+          <div className='flex-1 pt-36 lg:pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-start md:justify-center
           items-center lg:items-start text-orange'>
-          <div className='pb-12 max-w-sm px-6 lg:p-0'>
-            {data && <Paragraph data={data} />}        
-            <br />
+          <div className='px-6 lg:p-0 lg:mb-6'>
+            {data && <Paragraph data={data} />}
           </div>
           <MainSharedButton route={'bio'} />
         </div>

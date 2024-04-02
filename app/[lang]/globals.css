@@ -12,6 +12,10 @@ body {
   @apply h-screen w-screen;
 }
 
+.font-roboto {
+  font-family: 'Roboto', serif;
+};
+
 @layer components {
   .btn {
     @apply bg-white hover:bg-orange text-tertiary hover:scale-105 rounded-full px-4 lg:p-6 mt-4 mb-[30px] mx-auto lg:mx-0;

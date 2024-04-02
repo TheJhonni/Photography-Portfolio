@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'roboto': ['Roboto', 'sans-serif'],
+      'roboto': ['Roboto', 'serif'],
       primary: 'roboto',
       secondary: 'Mulish',
     },
