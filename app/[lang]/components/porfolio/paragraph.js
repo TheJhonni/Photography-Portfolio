@@ -22,7 +22,7 @@ const Paragraph = ({ data }) => {
 
   return (
     <>
-      <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.title}</h1>
+      <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.subtitle ? currentData.subtitle : currentData.title}</h1>
       <p className='pb-2 max-w-sm px-6 lg:p-0'>
         {currentData.paragraph}
       </p>

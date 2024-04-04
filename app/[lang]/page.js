@@ -1,6 +1,6 @@
 
 import { contentfulSingleton } from "./lib/contentful/client";
-import BackgroundVideo from "./components/porfolio/videoHome/backgroundVideo";
+import BackgroundVideo from "./components/home/videoHome/backgroundVideo";
 import CityText from "./components/home/cityText";
 import MainSharedButton from "./components/mainSharedButton";
 

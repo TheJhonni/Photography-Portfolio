@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getAssetById, getDynamicData } from '../lib/contentful/utils';
 import Paragraph from "../components/porfolio/paragraph";
 import MainSharedButton from "../components/mainSharedButton";
@@ -23,11 +22,11 @@ async function Bio(){
           </div>
           <div className='flex-1 pt-36 lg:pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-start md:justify-center
           items-center lg:items-start text-orange'>
-          <div className='px-6 lg:p-0 lg:mb-6'>
-            {data && <Paragraph data={data} />}
+            <div className='px-6 lg:p-0 lg:mb-6'>
+              {data && <Paragraph data={data} />}
+            </div>
+            <div className="mt-4"><MainSharedButton route={'bio'} /></div>
           </div>
-          <MainSharedButton route={'bio'} />
-        </div>
         </div>
       </div>
     </section>
