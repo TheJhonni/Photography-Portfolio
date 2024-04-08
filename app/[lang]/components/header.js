@@ -30,7 +30,11 @@ const Header = () => {
         </Link>
         <Navbar />
       </div>
-      <Socials />
+      
+    <div
+      className='hidden xl:flex ml-24 text-orange'>
+        <Socials />
+      </div>
       <MobileNav />
     </header>
   );

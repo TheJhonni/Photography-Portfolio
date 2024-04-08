@@ -13,7 +13,7 @@ export default function Home() {
   getData();
   return (
     <>
-      <section className='section bg-tertiary'>
+      <section className='bg-tertiary'>
         <div className='flex justify-end max-h-96 lg:h-[600px]'> 
             <div className='relative lg:w-full lg:right-0 lg:left-0 overflow-hidden'>
                 <BackgroundVideo />
@@ -31,6 +31,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* <Footer/> */}
       </section>
     </>
   )
