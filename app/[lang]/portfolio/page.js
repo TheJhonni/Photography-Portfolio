@@ -14,13 +14,15 @@ async function Portfolio(){
         <section
       className='section bg-tertiary h-full w-full'>
       <div className='container mx-auto h-full relative text-orange'>
-        <div className='flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-36 
+        <div className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center pt-72 
           lg:pt-0 pb-8'>
             {data &&
-                <div className='flex flex-col lg:items-start'>
-                <Paragraph data={data} />
-                <MainSharedButton route={'portfolio'} />
-              </div>
+                <div className='flex flex-col lg:items-center'>
+                  <div className='px-6 lg:p-0 lg:mb-6'>
+                    <Paragraph data={data} /> 
+                  </div>
+                  <MainSharedButton route={'portfolio'} />
+                </div>
             }         
           <div className='grid grid-cols-2 lg:gap-2'>
             {data && data[0].imagesCollection.map(async (collection) => {

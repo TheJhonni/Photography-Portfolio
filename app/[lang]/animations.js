@@ -17,7 +17,7 @@ export const animatePageIn = () => {
     const tl = gsap.timeline();
 
     tl.set(transitionElement, {
-      yPercent: 0,
+      yPercent: 10,
     })
       .to(transitionElement, {
         yPercent: -100,

@@ -16,16 +16,16 @@ async function Bio(){
       <div className='container mx-auto h-full relative'>
         <div
           className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24
-          text-center lg:text-left lg:pt-16 mb-[30px]'>
+          text-center lg:pt-16 mb-[30px]'>
           <div className='flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'>
             <Image width={500} height={500} src={imageUrl} alt='Foto Bio ikb' />
           </div>
           <div className='flex-1 pt-36 lg:pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-start md:justify-center
-          items-center lg:items-start text-orange'>
-            <div className='px-6 lg:p-0 lg:mb-6'>
+          items-center text-orange'>
               {data && <Paragraph data={data} />}
+            <div className='lg:mt-6'>
+              <MainSharedButton route={'bio'} />
             </div>
-            <div className="mt-4"><MainSharedButton route={'bio'} /></div>
           </div>
         </div>
       </div>

@@ -14,19 +14,19 @@ async function getData(){
   return (
     <section
       className='section bg-tertiary'>
-      <div className='container mx-auto h-screen'>
-        <div className='flex flex-col lg:flex-row h-full items-center justify-start 
-          pt-36 gap-x-8 text-center lg:text-left'>
+      <div className='container mx-auto h-screen pb-12'>
+        <div className='flex flex-col lg:flex-row h-full items-center justify-center 
+          pt-72 lg:pt-32 gap-x-8 text-center'>
           <div
             className='hidden lg:flex bg-white absolute bottom-0 left-0
-            right-0 top-72 -z-10'></div>
+            right-0 top-12 -z-10'></div>
           <div className='lg:flex-1 lg:pt-32 px-4 text-orange'>
                {data && <Paragraph data={data} />}
             <EmailSender />
           </div>
           <div
             className='lg:flex-1'>
-            <Image width={200} height={200} src={imageUrl} alt='Foto contact ikb' />
+            <Image width={400} height={400} src={imageUrl} alt='Foto contact ikb' />
           </div>
         </div>
       </div>

@@ -20,13 +20,13 @@ const Paragraph = ({ data }) => {
     animatePageIn();
   }, [params]);
 
-  return (
-    <>
+  return (      
+    <div className="text-center">
       <h1 className='h1 px-6 lg:p-0 text-uppercase'>{currentData.subtitle ? currentData.subtitle : currentData.title}</h1>
-      <p className='pb-2 max-w-sm px-6 lg:p-0'>
-        {currentData.paragraph}
+      <p className='pb-2 px-6 lg:p-0'>
+        {currentData.paragraph && currentData.paragraph}
       </p>
-    </>
+    </div>
   )
 }
 

@@ -12,7 +12,8 @@ export async function getDynamicData(location){
           return allData.map(({ fields }, index) => {
             const customFields = {
               ...fields, 
-              paragraph: fields.paragraph.content[0].content[0].value,
+              paragraph: fields.paragraph?.content[0].content[0].value,
+              videoSrc: fields.videoSrc ? fields.videoSrc : undefined,
               locale: allData[index].sys.locale
             }
             return customFields;

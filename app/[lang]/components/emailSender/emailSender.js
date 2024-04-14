@@ -33,8 +33,8 @@ const EmailSender = () => {
           }, 1000);
       };
 return (
-    <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-y-4'>
-        <div className='flex gap-x-10'>
+    <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-y-4 text-center'>
+        <div className='flex justify-center items-center gap-x-10'>
         <input
             name="user_name" className='outline-none border-b border-b-orange h-[60px] 
             bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]'
@@ -45,9 +45,9 @@ return (
             type='text' placeholder='Your email'/>
         </div>
         <textarea name="message"
-        rows="4" className="w-full px-0 text-sm focus:ring-0 outline-none border-b border-b-orange h-[50px] placeholder:pt-4
-        bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]" placeholder="Write a comment..." required></textarea>
-        <button type="submit" value="Send" className='btn font-roboto text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto lg:mx-0'>{sending === true ? 'Sending message' : 'Send it'}</button>
+        rows="4" className="w-full px-0 text-sm focus:ring-0 outline-none border-b border-b-orange h-[50px]
+        bg-transparent font-secondary pt-4 pl-3 placeholder:text-[#C67E28]" placeholder="Write a comment..." required></textarea>
+        <button type="submit" value="Send" className='btn font-roboto text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto'>{sending === true ? 'Sending message' : 'Send it'}</button>
     </form>
 )
 }
