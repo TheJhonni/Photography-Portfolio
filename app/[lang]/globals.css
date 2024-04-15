@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-tertiary h-full w-full relative font-roboto;
+  @apply bg-tertiary h-full w-full font-roboto;
 }
 .h1 {
   @apply text-[54px] lg:text-[108px] font-primary font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2;
