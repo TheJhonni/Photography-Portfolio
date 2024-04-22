@@ -8,7 +8,6 @@ const YoutubeVideo = ({ data }) => {
     event?.target.pauseVideo(); 
   } 
   const videoData = data[0].videoSrc
-  console.log(videoData);
   return ( 
     <>
           {videoData && videoData.map((videoId, index) => {
