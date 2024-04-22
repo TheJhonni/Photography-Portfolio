@@ -16,7 +16,7 @@ async function getData(){
       className='section bg-tertiary'>
       <div className='container mx-auto h-screen pb-12'>
         <div className='flex flex-col lg:flex-row h-full items-center justify-center 
-          pt-[300px] lg:pt-32 gap-x-8 text-center'>
+          pt-44 lg:pt-32 gap-x-8 text-center'>
           <div
             className='hidden lg:flex bg-white absolute bottom-0 left-0
             right-0 top-12 -z-10'></div>
