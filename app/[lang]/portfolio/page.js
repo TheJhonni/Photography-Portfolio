@@ -14,8 +14,7 @@ async function Portfolio(){
         <section
       className='section bg-tertiary h-full w-full'>
       <div className='container mx-auto h-full relative text-orange'>
-        <div className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center pt-72 
-          lg:pt-0 pb-8'>
+        <div className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center pt-32 lg:pt-0 pb-8'>
             {data &&
                 <div className='flex flex-col lg:items-center'>
                   <div className='px-6 lg:p-0 lg:mb-6'>
