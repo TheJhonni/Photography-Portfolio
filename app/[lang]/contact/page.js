@@ -13,7 +13,7 @@ async function getData(){
 
   return (
     <section
-      className='section bg-tertiary'>
+      className='section bg-tertiary pt-28 lg:pt-0'>
       <div className='container mx-auto h-screen pb-12'>
         <div className='flex flex-col lg:flex-row h-full items-center justify-center 
           pt-28 lg:pt-32 gap-x-8 text-center'>
