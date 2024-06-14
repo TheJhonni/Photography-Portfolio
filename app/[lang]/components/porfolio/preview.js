@@ -7,12 +7,12 @@ import { animatePageOut } from '../../animations';
 import TransitionLink from '../transitionLink';
 
 const Preview = ({linkTo, imageUrl, imageAlt}) =>{
-    const [lang, setLang] = useState('en');
+    const [lang, setLang] = useState('it');
     const params = useParams();
     
-    useEffect(() => {
-        params.lang ? setLang(params.lang) : setLang('en')
-      }, [params]);
+    // useEffect(() => {
+    //     params.lang ? setLang(params.lang) : setLang('it')
+    //   }, [params]);
 return (
     <>
         <TransitionLink className='max-w-[250px] lg:max-w-[320px] h-[187px] lg:h-[220px] bg-orange overflow-hidden'  

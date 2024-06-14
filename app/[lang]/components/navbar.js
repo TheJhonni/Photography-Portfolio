@@ -10,12 +10,12 @@ const Navbar = () => {
   // const params = useParams();
   const router = useRouter();
 
-  const handleLanguages = (e) => {
-    // e.target.checked ? setLanguage('en') : setLanguage('it')
-    params.lang = 'it';
-    // params.lang = e.target.checked ? 'en' : 'it';
-    router.push(replaceLangFromURL(pathName,params.lang));
-  };
+  // const handleLanguages = (e) => {
+  //   e.target.checked ? setLanguage('en') : setLanguage('it')
+  //   params.lang = 'it';
+  //   params.lang = e.target.checked ? 'en' : 'it';
+  //   router.push(replaceLangFromURL(pathName,params.lang));
+  // };
 
   // useEffect(()=>{
   //   if(params.lang){

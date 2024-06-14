@@ -37,7 +37,8 @@ export const animatePageIn = () => {
 
 export const animatePageOut = (href, router, label) => {
   const animationWrapper = document.getElementById("transition-element");
-  const hrefAlreadyInHomePage = (window.location.pathname === '/en' || window.location.pathname === '/it') && label === 'Home';
+  const hrefAlreadyInHomePage = window.location.pathname === '/it' && label === 'Home';
+  // const hrefAlreadyInHomePage = (window.location.pathname === '/en' || window.location.pathname === '/it') && label === 'Home';
   if (animationWrapper  && !hrefAlreadyInHomePage) {
     const tl = gsap.timeline();
 
