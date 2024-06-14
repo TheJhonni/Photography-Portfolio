@@ -9,7 +9,7 @@ async function getData(){
 
 async function Bio(){
     const data = await getData();
-    const imageUrl = `https:${await getAssetById(data[0].mainFoto.sys.id)}`
+    const imageUrl = `https:${await getAssetById(data[1].mainFoto.sys.id)}`
   
   return (
     <section className='section bg-tertiary'>

@@ -1,17 +1,17 @@
 import gsap from "gsap";
 
-const handleClick = (e) => {
-  if (e) {
-    return
-  }
-  languageInput.removeEventListener("click", handleClick);
-};
+// const handleClick = (e) => {
+//   if (e) {
+//     return
+//   }
+//   languageInput.removeEventListener("click", handleClick);
+// };
 
 export const animatePageIn = () => {
   const transitionElement = document.getElementById("transition-element");
 
-  const languageInput = document.getElementById("language-input");
-  languageInput.addEventListener("click", handleClick);
+  // const languageInput = document.getElementById("language-input");
+  // languageInput.addEventListener("click", handleClick);
   
   if (transitionElement) {
     const tl = gsap.timeline();

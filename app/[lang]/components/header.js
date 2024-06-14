@@ -9,14 +9,14 @@ import Socials from './socials';
 import { useParams } from 'next/navigation';
 
 const Header = () => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('it');
   const params = useParams();
 
   useEffect(()=>{
     if(params.lang){
       setLanguage(params.lang);
     } else {
-      setLanguage('en')
+      setLanguage('it')
     }
   }, [params.lang])
 

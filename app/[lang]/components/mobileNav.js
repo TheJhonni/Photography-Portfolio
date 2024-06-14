@@ -7,7 +7,7 @@ import TransitionLink from './transitionLink';
 
 
 const MobileNav = () => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('it');
   const [openMenu, setOpenMenu] = useState(false);
   const pathName = usePathname();
   const params = useParams();
@@ -15,19 +15,19 @@ const MobileNav = () => {
   const navRef = useRef(null);
 
   
-  const handleLanguages = (x) => {
-    x.target.checked ? setLanguage('en') : setLanguage('it');
-    params.lang = x.target.checked ? 'en' : 'it';
-    router.push(replaceLangFromURL(pathName,params.lang));
-  };
+  // const handleLanguages = (x) => {
+  //   x.target.checked ? setLanguage('en') : setLanguage('it');
+  //   params.lang = x.target.checked ? 'en' : 'it';
+  //   router.push(replaceLangFromURL(pathName,params.lang));
+  // };
   
-  useEffect(()=>{
-    if(params.lang){
-      setLanguage(params.lang);
-    } else {
-      setLanguage('en')
-    }
-  }, [params.lang])
+  // useEffect(()=>{
+  //   if(params.lang){
+  //     setLanguage(params.lang);
+  //   } else {
+  //     setLanguage('en')
+  //   }
+  // }, [params.lang])
   
   useEffect(()=>{
     setOpenMenu(false)
@@ -73,7 +73,7 @@ const MobileNav = () => {
           <li className={`${(pathname.includes('contact')) ? 'border-b border-b-orange' : ''}`}>
             <TransitionLink href={`/${language}/contact`} label={language === 'en' ? 'Contacts' : 'Contatti'} />
           </li>
-          <li className='bg-secondary rounded-full px-3 pt-2 pb-1'>
+          {/* <li className='bg-secondary rounded-full px-3 pt-2 pb-1'>
             <label className="relative inline-flex items-center me-5 cursor-pointer">
             <input
               onChange={handleLanguages}
@@ -87,7 +87,7 @@ const MobileNav = () => {
                 after:w-5 after:transition-all peer-checked:bg-orange"></div>
               <span className="ml-4 ms-3 text-sm font-medium text-orange">{language === 'en' ? 'English' : 'Italiano'}</span>
             </label>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
