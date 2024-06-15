@@ -31,7 +31,8 @@ const Header = () => {
         <Navbar />
       </div>
       
-    <div className="flex-grow flex justify-center xl:justify-start items-center mr-12 xl:mr-0 text-orange">
+    <div
+      className='flex mr-12 xl:mr-0 xl:ml-24 text-orange'>
         <Socials />
       </div>
       <MobileNav />
