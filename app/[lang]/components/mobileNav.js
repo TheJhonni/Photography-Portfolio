@@ -4,6 +4,7 @@ import { CgMenuRight } from 'react-icons/cg';
 import { usePathname, useParams, useRouter } from "next/navigation";
 import { replaceLangFromURL } from '../lib/utils';
 import TransitionLink from './transitionLink';
+import Socials from './socials';
 
 
 const MobileNav = () => {
@@ -61,6 +62,7 @@ const MobileNav = () => {
           <IoMdClose />
         </div>
         <ul ref={navRef} className='h-full flex flex-col justify-center items-center gap-y-8 text-primary font-primary font-bold text-3xl'>
+          <Socials />
           <li className={`${(pathname === '/en' || pathname === '/it') ? 'border-b border-b-orange' : ''}`}>
             <TransitionLink href={`/${language}/`} label={'Home'} />
           </li>

@@ -31,8 +31,7 @@ const Header = () => {
         <Navbar />
       </div>
       
-    <div
-      className='hidden xl:flex ml-24 text-orange'>
+    <div className="flex-grow flex justify-center xl:justify-start items-center mr-12 xl:mr-0 text-orange">
         <Socials />
       </div>
       <MobileNav />
