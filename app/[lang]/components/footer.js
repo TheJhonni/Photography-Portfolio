@@ -1,13 +1,13 @@
-"use client"
-import React, { useEffect } from 'react';
+"use client";
+import React, { useEffect } from "react";
 
 const Footer = () => {
   useEffect(() => {
     // Funzione per aggiungere lo script di iubenda al documento
     const addIubendaScript = () => {
-      const scriptElement = document.createElement('script');
+      const scriptElement = document.createElement("script");
       scriptElement.src = "https://cdn.iubenda.com/iubenda.js";
-      scriptElement.type = 'text/javascript';
+      scriptElement.type = "text/javascript";
       document.body.appendChild(scriptElement);
     };
 
@@ -23,7 +23,9 @@ const Footer = () => {
     // Cleanup function per rimuovere l'event listener e lo script quando il componente viene smontato
     return () => {
       window.removeEventListener("load", addIubendaScript);
-      const scriptElement = document.querySelector("script[src='https://cdn.iubenda.com/iubenda.js']");
+      const scriptElement = document.querySelector(
+        "script[src='https://cdn.iubenda.com/iubenda.js']"
+      );
       if (scriptElement) {
         document.body.removeChild(scriptElement);
       }
@@ -31,18 +33,35 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-white shadow fixed bottom-0 w-full z-50">
-      <div className="flex justify-center items-center">
-        <a href="https://www.iubenda.com/privacy-policy/50123761" target='blank'
-           className="btn text-primary px-3 py-1 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mx-2"
-           title="Privacy Policy">
+    <footer className="fixed bottom-0 w-full z-50 text-white text-sm text-center p-2">
+      <div>
+        © 2016, ikbmultimedia •
+        <a
+          href="https://www.iubenda.com/privacy-policy/50123761"
+          target="_blank"
+          className="text-orange hover:underline"
+        >
           Privacy Policy
-        </a>
-        <a href="https://www.iubenda.com/privacy-policy/50123761/cookie-policy" target='blank'
-           className="btn text-primary px-3 py-1 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mx-2"
-           title="Cookie Policy">
+        </a>{" "}
+        •
+        <a
+          href="https://www.iubenda.com/privacy-policy/50123761/cookie-policy"
+          target="_blank"
+          className="text-orange hover:underline"
+        >
           Cookie Policy
         </a>
+        •
+        <span>
+          Developed by
+          <a
+            href="https://github.com/TheJhonni"
+            target="_blank"
+            className="text-orange hover:underline"
+          >
+            TheJhonni
+          </a>
+        </span>
       </div>
     </footer>
   );
