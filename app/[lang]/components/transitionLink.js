@@ -17,7 +17,7 @@ export default function TransitionLink({
 
   return (
     <button
-    className={isButton ? 'btn font-roboto text-primary px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto lg:mx-0' : 'text-center text-orange'}
+    className={isButton ? 'btn text-primary px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto lg:mx-0' : 'text-center text-orange'}
       onClick={handleClick}
     >
        {children || label}

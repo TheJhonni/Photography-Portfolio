@@ -47,7 +47,7 @@ return (
         <textarea name="message"
         rows="4" className="w-full px-0 text-sm focus:ring-0 outline-none border-b border-b-orange h-[50px]
         bg-transparent font-secondary pt-4 pl-3 placeholder:text-[#C67E28]" placeholder="Write a comment..." required></textarea>
-        <button type="submit" value="Send" className='btn font-roboto text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto'>{sending === true ? 'Sending message' : 'Send it'}</button>
+        <button type="submit" value="Send" className='btn text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto'>{sending === true ? 'Sending message' : 'Send it'}</button>
     </form>
 )
 }
