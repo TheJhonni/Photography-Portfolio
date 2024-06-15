@@ -35,7 +35,7 @@ const Footer = () => {
   return (
     <footer className="fixed bottom-0 w-full z-50 text-white text-sm text-center p-2">
       <div>
-        © 2016, ikbmultimedia •
+        © 2016, ikbmultimedia •{" "}
         <a
           href="https://www.iubenda.com/privacy-policy/50123761"
           target="_blank"
@@ -43,17 +43,17 @@ const Footer = () => {
         >
           Privacy Policy
         </a>{" "}
-        •
+        •{" "}
         <a
           href="https://www.iubenda.com/privacy-policy/50123761/cookie-policy"
           target="_blank"
           className="text-orange hover:underline"
         >
           Cookie Policy
-        </a>
-        •
+        </a>{" "}
+        •{" "}
         <span>
-          Developed by
+          Developed by{" "}
           <a
             href="https://github.com/TheJhonni"
             target="_blank"
