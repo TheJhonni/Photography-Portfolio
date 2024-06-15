@@ -4,21 +4,21 @@ import { useEffect, useState } from "react";
 import { animatePageIn } from "../../animations";
 
 const Paragraph = ({ data }) => {
-  const [currentData, setCurrentData] = useState(data[0]);
+  const [currentData, setCurrentData] = useState(data[1]);
   const params = useParams();
 
-  const handleStorageChange = () => {
-    if (params.lang === "it") {
-      setCurrentData(data[1]);
-    } else {
-      setCurrentData(data[0]);
-    };
-  };
+  // const handleStorageChange = () => {
+  //   if (params.lang === "it") {
+  //     setCurrentData(data[1]);
+  //   } else {
+  //     setCurrentData(data[0]);
+  //   };
+  // };
 
-  useEffect(() => {
-    handleStorageChange();
-    animatePageIn();
-  }, [params]);
+  // useEffect(() => {
+  //   handleStorageChange();
+  //   animatePageIn();
+  // }, [params]);
 
   return (      
     <div className="text-center">

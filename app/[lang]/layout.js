@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <body>
       {children}
         </body>
-        <Script dangerouslySetInnerHTML={{ __html: `
+        <Script id="dangerouslySetInnerHTML" dangerouslySetInnerHTML={{ __html: `
             var _iub = _iub || [];
             _iub.csConfiguration = {
               "askConsentAtCookiePolicyUpdate":true,
@@ -40,8 +40,8 @@ export default function RootLayout({ children }) {
               }
             };
           `}} />
-          <Script src="https://cs.iubenda.com/autoblocking/3672185.js" type="text/javascript"></Script>
-          <Script src="//cdn.iubenda.com/cs/iubenda_cs.js" type="text/javascript" charset="UTF-8" async></Script>
+          <Script id="iubenta1" src="https://cs.iubenda.com/autoblocking/3672185.js" type="text/javascript"></Script>
+          <Script id="iubenta2" src="//cdn.iubenda.com/cs/iubenda_cs.js" type="text/javascript" charset="UTF-8" async></Script>
     </html>
   );
 }

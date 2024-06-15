@@ -3,20 +3,20 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const CityText = () => {
-  const [buttonText, setButtonText] = useState('Milan');
+  const [buttonText, setButtonText] = useState('Milano');
   const params = useParams();
 
-  const handleLanguageChange = () => {
-    if (params.lang === "it") {
-      setButtonText('Milano');
-    } else {
-      setButtonText('Milan');
-    };
-  };
+  // const handleLanguageChange = () => {
+  //   if (params.lang === "it") {
+  //     setButtonText('Milano');
+  //   } else {
+  //     setButtonText('Milan');
+  //   };
+  // };
 
-  useEffect(() => {
-    handleLanguageChange();
-  }, [params]);
+  // useEffect(() => {
+  //   handleLanguageChange();
+  // }, [params]);
 
   return (
     <>
