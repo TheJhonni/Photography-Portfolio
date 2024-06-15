@@ -25,6 +25,7 @@
     "typeface-roboto": "^1.1.13"
   },
   "devDependencies": {
+    "@mep-agency/next-iubenda": "^1.0.0-alpha5",
     "@types/node": "20.12.2",
     "@types/react": "18.2.73",
     "autoprefixer": "^10.0.1",
