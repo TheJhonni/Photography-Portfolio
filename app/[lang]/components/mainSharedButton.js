@@ -10,12 +10,12 @@ const translations = {
   en: {
     homePage: 'Contact me',
     portfolio: 'Contact me',
-    bio: 'View my works'
+    bio: 'Portfolio'
   },
   it: {
-    homePage: 'Chiedi un preventivo',
+    homePage: 'Richiedi una consulenza',
     portfolio: 'Contattami',
-    bio: 'Guarda i miei lavori'
+    bio: 'Portfolio'
   }
 };
 

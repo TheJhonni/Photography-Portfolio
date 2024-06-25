@@ -12,7 +12,7 @@ const YoutubeVideo = ({ data }) => {
     <>
           {videoData && videoData.map((videoId, index) => {
     return ( 
-      <Suspense key={index} fallback={<p>Loading videos...</p>}>
+      <Suspense key={index} fallback={<p>Caricando i video...</p>}>
         <div className={`w-full lg:w-[800px] xl:w-[1200px] mx-auto ${index === 0 ? 'pb-10' : ''}`}>
           <YouTube videoId={videoId}
             opts={{

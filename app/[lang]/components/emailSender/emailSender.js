@@ -38,16 +38,16 @@ return (
         <input
             name="user_name" className='outline-none border-b border-b-orange h-[60px] 
             bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]'
-            type='text' placeholder='Your name'/>
+            type='text' placeholder='Il tuo nome'/>
         <input
             name="user_email" className='outline-none border-b border-b-orange h-[60px] 
             bg-transparent font-secondary w-full pl-3 placeholder:text-[#C67E28]'
-            type='text' placeholder='Your email'/>
+            type='text' placeholder='La tua email'/>
         </div>
         <textarea name="message"
         rows="4" className="w-full px-0 text-sm focus:ring-0 outline-none border-b border-b-orange h-[50px]
-        bg-transparent font-secondary pt-4 pl-3 placeholder:text-[#C67E28]" placeholder="Write a comment..." required></textarea>
-        <button type="submit" value="Send" className='btn text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto'>{sending === true ? 'Sending message' : 'Send it'}</button>
+        bg-transparent font-secondary pt-4 pl-3 placeholder:text-[#C67E28]" placeholder="Scrivi un commento..." required></textarea>
+        <button type="submit" value="Send" className='btn text-primary max-w-[120px] px-6 py-4 bg-tertiary hover:bg-orange text-white hover:text-tertiary hover:scale-105 border border-2 border-white hover:border-orange mt-4 mb-[30px] mx-auto'>{sending === true ? 'Sto inviando...' : 'Invia'}</button>
     </form>
 )
 }

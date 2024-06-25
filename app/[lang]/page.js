@@ -28,7 +28,7 @@ export default async function Home() {
         </div>
         <div className='container mx-auto pb-12 pt-8 h-full relative lg:top-[550px]'>
           <div className='flex flex-col justify-center items-center'>
-            <div className='w-full pt-0 pb-0 lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center text-orange'>
+            <div className='w-full pt-0 pb-6 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center text-orange'>
             {data && <Paragraph data={data} />}
               <p className='text-[26px] lg:text-[36px] font-primary lg:mb-6'>
                 <CityText/>, ITA
